@@ -72,6 +72,9 @@ module.exports = withPlausibleProxy({
         hostname: "assets.dub.co", // for Dub's static assets
       },
       {
+        hostname: "assets.clikd.uk", // clikd user generated images (R2)
+      },
+      {
         hostname: "dubassets.com", // for Dub's user generated images
       },
       {
