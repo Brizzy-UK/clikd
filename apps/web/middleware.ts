@@ -1,6 +1,11 @@
 import { logger } from "@/lib/axiom/server";
 import { transformMiddlewareRequest } from "@axiomhq/nextjs";
-import { API_HOSTNAMES, DEFAULT_REDIRECTS, isValidUrl } from "@dub/utils";
+import {
+  API_HOSTNAMES,
+  DEFAULT_REDIRECTS,
+  isValidUrl,
+  SHORT_DOMAIN,
+} from "@dub/utils";
 import { isAppHostname } from "@dub/utils/src/constants";
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 import { ApiMiddleware } from "./lib/middleware/api";
@@ -62,7 +67,7 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   }
 
   // default redirects for dub.sh
-  if (domain === "dub.sh" && DEFAULT_REDIRECTS[key]) {
+  if (domain === SHORT_DOMAIN && DEFAULT_REDIRECTS[key]) {
     return NextResponse.redirect(DEFAULT_REDIRECTS[key]);
   }
 
