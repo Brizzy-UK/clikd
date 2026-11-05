@@ -1,7 +1,9 @@
 import Stripe from "stripe";
 import { StripeMode } from "../types";
 
-export const stripe = new Stripe(`${process.env.STRIPE_SECRET_KEY}`, {
+// Placeholder when unset (self-hosted without billing): an empty key makes the
+// Stripe SDK throw on import, which breaks `next build`.
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_unset", {
   apiVersion: "2025-05-28.basil",
   appInfo: {
     name: "Dub.co",
