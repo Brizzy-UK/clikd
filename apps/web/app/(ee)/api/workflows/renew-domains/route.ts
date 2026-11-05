@@ -9,7 +9,7 @@ import { serve } from "@upstash/workflow/nextjs";
 import { addDays, startOfDay } from "date-fns";
 import * as z from "zod/v4";
 
-export const maxDuration = 600;
+export const maxDuration = 300; // Vercel Hobby limit (was 600)
 
 const inputSchema = z.object({
   invoiceId: z.string(),
