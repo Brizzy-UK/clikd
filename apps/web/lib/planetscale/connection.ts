@@ -85,4 +85,8 @@ const getConnection = (): Connection => {
   return global.mysqlConn;
 };
 
-export const conn = getConnection();
+// Created lazily on first query, so importing this module never throws
+// (e.g. during `next build` page-data collection, or if DATABASE_URL is unset).
+export const conn: Connection = {
+  execute: (query, args) => getConnection().execute(query, args),
+};
