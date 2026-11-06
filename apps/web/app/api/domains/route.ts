@@ -234,7 +234,7 @@ export const POST = withWorkspace(
         });
       },
       {
-        isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+        isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead, // TiDB does not support SERIALIZABLE
         maxWait: 5000,
         timeout: 5000,
       },

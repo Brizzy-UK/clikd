@@ -4,7 +4,7 @@ import { testIds } from "@/lib/e2e/test-ids";
 import { isGenericEmail } from "@/lib/email/is-generic-email";
 import { AlertCircleFill } from "@/ui/shared/icons";
 import { Button, buttonVariants, FileUpload, useMediaQuery } from "@dub/ui";
-import { cn } from "@dub/utils";
+import { APP_HOSTNAME, cn } from "@dub/utils";
 import slugify from "@sindresorhus/slugify";
 import { useSession } from "next-auth/react";
 import { usePlausible } from "next-plausible";
@@ -141,7 +141,7 @@ export function CreateWorkspaceForm({
         </label>
         <div className="relative mt-2 flex rounded-md shadow-sm">
           <span className="inline-flex items-center rounded-l-md border border-r-0 border-neutral-300 bg-neutral-50 px-3 text-neutral-500 sm:text-sm">
-            app.dub.co
+            {APP_HOSTNAME}
           </span>
           <input
             id="slug"

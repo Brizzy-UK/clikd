@@ -144,7 +144,7 @@ export const POST = withWorkspace(
         });
       },
       {
-        isolationLevel: Prisma.TransactionIsolationLevel.ReadUncommitted,
+        isolationLevel: Prisma.TransactionIsolationLevel.ReadCommitted, // TiDB does not support READ UNCOMMITTED
         maxWait: 5000,
         timeout: 5000,
       },

@@ -145,7 +145,7 @@ export const POST = withSession(async ({ req, session }) => {
         });
       },
       {
-        isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+        isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead, // TiDB does not support SERIALIZABLE
         maxWait: 5000,
         timeout: 5000,
       },
